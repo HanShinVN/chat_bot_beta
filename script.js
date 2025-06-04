@@ -62,39 +62,7 @@ function appendMessage(role, text) {
   wrapper.appendChild(msg);
   chatBox.appendChild(wrapper);
   chatBox.scrollTop = chatBox.scrollHeight;
-
-
-
-    // Nút xoá từng tin nhắn
-    const deleteBtn = document.createElement('button');
-    deleteBtn.innerHTML = '❌';
-    deleteBtn.style.marginLeft = '10px';
-    deleteBtn.style.cursor = 'pointer';
-    deleteBtn.addEventListener('click', () => {
-      wrapper.remove();
-      conversationHistory = conversationHistory.filter(item => item.content !== text);
-      localStorage.setItem('conversationHistory', JSON.stringify(conversationHistory));
-    });
-
-    msg.appendChild(deleteBtn);
-    wrapper.appendChild(msg);
-    chatBox.appendChild(wrapper);
-    chatBox.scrollTop = chatBox.scrollHeight;
-  }
-
-  // Xoá toàn bộ lịch sử
-  const clearAllBtn = document.createElement('button');
-  clearAllBtn.textContent = '🗑️ Xóa tất cả';
-  clearAllBtn.style.margin = '100px';
-  clearAllBtn.addEventListener('click', () => {
-    chatBox.innerHTML = '';
-    conversationHistory = [];
-    localStorage.removeItem('conversationHistory');
-  });
-  document.querySelector('.chat-header').appendChild(clearAllBtn);
-
-
-
+}
 
 // ==== Format văn bản đẹp ====
 function formatText(text) {
